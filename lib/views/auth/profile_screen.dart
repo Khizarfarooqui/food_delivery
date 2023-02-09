@@ -13,8 +13,6 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
   DatabaseReference databaseRef = FirebaseDatabase.instance.ref('User');
-
-  // final ref = FirebaseDatabase.instance.ref("User");
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,13 +33,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   children: [
                 ClipRRect(
                 borderRadius: BorderRadius.circular(100),
+
                 child: Container(
                   height: 150,
                   width: 150,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(100),
                   ),
-                        child: Image.asset("assets/images/profile_icon.png"),
+                        child: Image.network('${result.imageUrl}',fit: BoxFit.fill,),
                       ),
                     ),
                     SizedBox(height: 30,),

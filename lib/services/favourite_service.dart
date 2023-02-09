@@ -39,7 +39,7 @@ class FavouriteService {
     try{
       var result = _firebaseFirestore.collection(_kUserCollectionName).doc(userId).collection(_kFavouriteItem).doc(itemId).get();
       if(result != null){
-        return result;
+        return ;
       }
     }on FirebaseFirestore catch (firebaseException){
       print(firebaseException);

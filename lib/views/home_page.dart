@@ -1,13 +1,11 @@
 
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/models/category_model.dart';
 import 'package:food_delivery/models/menu_model.dart';
 import 'package:food_delivery/models/popular_items_model.dart';
 import 'package:food_delivery/services/category_services.dart';
-import 'package:food_delivery/utils/session_management.dart';
+import 'package:food_delivery/services/user_services.dart';
 import 'package:food_delivery/utils/utilts.dart';
-import 'package:food_delivery/views/auth/login_screen.dart';
 import 'package:food_delivery/views/auth/profile_screen.dart';
 import 'package:food_delivery/views/food_cart.dart';
 import 'package:food_delivery/widgets/menu.dart';
@@ -15,6 +13,7 @@ import 'package:food_delivery/widgets/popular_items.dart';
 import '../services/menu_services.dart';
 import '../services/popular_items_service.dart';
 import '../widgets/category.dart';
+import 'auth/login_screen.dart';
 import 'favorites_screen.dart';
 
 class HomePage extends StatefulWidget {
@@ -27,11 +26,9 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final searchText = TextEditingController();
-  final auth = FirebaseAuth.instance;
   final CategoriesService _categoriesService = CategoriesService();
   final MenuService _menuService = MenuService();
   final PoplarItemsService _popularItemsService = PoplarItemsService();
-  FirebaseAuth _auth = FirebaseAuth.instance;
 
 
   @override
@@ -144,15 +141,10 @@ class _HomePageState extends State<HomePage> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            GestureDetector(
-                              onTap: (){
-                                print(_auth.currentUser);
-                              },
-                              child: Text(
-                                "Set Menu",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 20),
-                              ),
+                            Text(
+                              "Set Menu",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 20),
                             ),
                             Spacer(),
                             Text(
@@ -284,16 +276,16 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-void logout(){
-  auth.signOut().then((value) {
-    Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (context) =>
-                LoginScreen()));
-        SessionManagement().deleteData("user");
-  }).onError((error, stackTrace) {
-    Utils().toastMessage(error.toString());
-  });
-}
+  void logout() async {
+    var result = await UserService().logoutUser();
+    if(result is String){
+      Utils().toastMessage(result);
+    } else {
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) =>
+                  LoginScreen()));
+    }
+  }
 }

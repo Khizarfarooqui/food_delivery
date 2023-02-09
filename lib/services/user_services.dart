@@ -121,4 +121,18 @@ class UserService{
       return dartException.toString();
     }
   }
+
+  Future<dynamic> logoutUser() async{
+    try{
+      await _firebaseAuth.signOut();
+      await SessionManagement().deleteData('user');
+    }on FirebaseException catch(firebaseException){
+      print(firebaseException.message.toString());
+      return firebaseException.message.toString();
+    }catch(dartException){
+      print(dartException.toString());
+      return dartException.toString();
+    }
+  }
+
 }
