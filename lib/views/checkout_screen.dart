@@ -14,7 +14,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
+      appBar: AppBar(
           title: Text("CheckOut"),
           centerTitle: true,
           backgroundColor: Colors.orange,

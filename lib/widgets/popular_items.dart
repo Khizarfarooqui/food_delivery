@@ -72,7 +72,7 @@ class _PopularItemsState extends State<PopularItems> {
                         child: Column(
                           children: [
                             Padding(
-                              padding: const EdgeInsets.only(bottom: 50),
+                              padding: const EdgeInsets.only(bottom: 10),
                               child: IconButton(onPressed: () async {
                                 var currentUserId = UserService().getCurrentUserId();
                                 if(currentUserId is String){

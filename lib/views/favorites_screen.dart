@@ -44,68 +44,71 @@ class _FavouriteItemScreenState extends State<FavouriteItemScreen> {
                 itemCount: result.length,
                 itemBuilder: (_, index){
                   return Container(
-                    child: Card(
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                      child: Container(
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
-                                child: Image.network(result[index].popularImageUrl,
-                                  width: 100,
-                                  height: 100,
-                                  fit:BoxFit.fitHeight,
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 8.0),
+                      child: Card(
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                        child: Container(
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  child: Image.network(result[index].popularImageUrl,
+                                    width: 100,
+                                    height: 100,
+                                    fit:BoxFit.fitHeight,
+                                  ),
                                 ),
-                              ),
-                              Row(
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.start,
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
-                                          Text(result[index].itemName, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),),
-                                          Ratings(),
-                                          Padding(
-                                            padding: const EdgeInsets.only(top: 30),
-                                            child: Text("Rs. ${result[index].price}", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(left: 80),
-                                      child: Column(
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(bottom: 50),
-                                            child: IconButton(onPressed: () async {
-                                              var currentUserId = UserService().getCurrentUserId();
-                                              if(currentUserId is String){
-                                                _isFavourite = !_isFavourite;
-                                                FavouritesModel addToFav = FavouritesModel.empty();
-
-                                              } else {
-
-                                              }
-                                            },
-                                              icon: (_isFavourite ?
-                                              Icon(Icons.favorite) : Icon(Icons.favorite_outline)),
-                                              color: Colors.red,
+                                Row(
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Column(
+                                          mainAxisAlignment: MainAxisAlignment.start,
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            Text(result[index].itemName, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),),
+                                            Ratings(),
+                                            Padding(
+                                              padding: const EdgeInsets.only(top: 30),
+                                              child: Text("Rs. ${result[index].price}", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),),
                                             ),
-                                          ),
-                                          Icon(Icons.add),
-                                        ],
+                                          ],
+                                        ),
                                       ),
-                                    )
-                                  ]
-                              ),
-                            ],
+                                      Padding(
+                                        padding: const EdgeInsets.only(left: 80),
+                                        child: Column(
+                                          children: [
+                                            Padding(
+                                              padding: const EdgeInsets.only(bottom: 50),
+                                              child: IconButton(onPressed: () async {
+                                                var currentUserId = UserService().getCurrentUserId();
+                                                if(currentUserId is String){
+                                                  _isFavourite = !_isFavourite;
+                                                  FavouritesModel addToFav = FavouritesModel.empty();
+
+                                                } else {
+
+                                                }
+                                              },
+                                                icon: (_isFavourite ?
+                                                Icon(Icons.favorite) : Icon(Icons.favorite_outline)),
+                                                color: Colors.red,
+                                              ),
+                                            ),
+                                            Icon(Icons.add),
+                                          ],
+                                        ),
+                                      )
+                                    ]
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),

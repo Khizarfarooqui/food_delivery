@@ -33,7 +33,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   children: [
                 ClipRRect(
                 borderRadius: BorderRadius.circular(100),
-
                 child: Container(
                   height: 150,
                   width: 150,

@@ -23,7 +23,7 @@ class Menu extends StatelessWidget {
                 topRight: Radius.circular(8.0),
               ),
               child: Image.network(menuImageUrl,
-                  width: 200,
+                  width: 250,
                   height: 150,fit:BoxFit.cover),
             ),
             Padding(
@@ -43,11 +43,11 @@ class Menu extends StatelessWidget {
               ],
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
+              padding: const EdgeInsets.only(top: 10, left: 10,),
               child: Row(
                 children: [
                   Text("Rs.$price", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),),
-                  SizedBox(width: 120,),
+                  SizedBox(width: 130,),
                   Icon(Icons.add,),
                 ],
               ),

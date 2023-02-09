@@ -9,9 +9,8 @@ class CartList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return
-      Card(
-      color: Colors.grey.shade100,
+    return Card(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Row(
@@ -29,7 +28,7 @@ class CartList extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text("Bitter Orange",style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),),
-                  Text("Spicy",style: TextStyle(fontSize: 20, color: Colors.grey),),
+                  Text("Spicy",style: TextStyle(fontSize: 20,),),
                   Padding(
                     padding: const EdgeInsets.only(top: 10),
                     child: Row(
