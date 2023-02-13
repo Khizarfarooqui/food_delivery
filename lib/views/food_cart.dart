@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/widgets/rounded_button.dart';
-
 import '../widgets/cart_list.dart';
 import 'checkout_screen.dart';
 
@@ -19,27 +18,22 @@ class _FoodCartState extends State<FoodCart> {
         centerTitle: true,
         backgroundColor: Colors.orange,
       ),
-      body: Padding(
-        padding: const EdgeInsets.only(top: 8.0),
-        child: Column(
-          children: [
-            Expanded(
-              child: ListView.builder(
-                  itemCount: 4,
-                  itemBuilder: (BuildContext context, int index) {
-                    return CartList();
-                  }
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: RoundButton(title: "Place order", onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=> CheckoutScreen()));
-              }),
-            ),
-          ],
-        ),
-      )
+      // body: FutureBuilder(
+      //   builder: (context, snapshot) {
+      //
+      //   },
+
+      // )
+
+
+
+
+      // Padding(
+      //   padding: const EdgeInsets.all(8.0),
+      //   child: RoundButton(title: "Place order", onTap: (){
+      //     Navigator.push(context, MaterialPageRoute(builder: (context)=> CheckoutScreen()));
+      //   }),
+      // ),
     );
   }
 }

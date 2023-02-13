@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/models/cart_model.dart';
+import 'package:food_delivery/services/cart_service.dart';
 import 'package:food_delivery/services/user_services.dart';
 import 'package:food_delivery/widgets/ratings.dart';
 import '../models/favourites_model.dart';
@@ -94,7 +96,17 @@ class _PopularItemsState extends State<PopularItems> {
                                 color: Colors.red,
                               ),
                             ),
-                            Icon(Icons.add),
+                            IconButton(
+                              onPressed: () async{
+                                var currentUserId = UserService().getCurrentUserId();
+                                CartModel addToCart = CartModel.empty();
+                                  addToCart.popularImageUrl = widget.popularImageUrl;
+                                  addToCart.itemName = widget.itemName;
+                                  addToCart.price = widget.itemPrice;
+                                await CartService().addNewCart(cartModel: addToCart, userId: currentUserId);
+                              },
+                              icon: Icon(Icons.add),
+                            ),
                           ],
                         ),
                       )

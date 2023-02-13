@@ -18,7 +18,6 @@ class FavouriteService {
   final String _kFavouriteItem = "FavItem";
   final SessionManagement _sessionManagement = SessionManagement();
 
-
   factory FavouriteService(){
     return _instance;
   }
@@ -27,7 +26,7 @@ class FavouriteService {
 
   Future<void> addNewFavourite({required FavouritesModel favouritesModel,required String userId}) async {
     try {
-      await _firebaseFirestore.collection("User").doc(userId).collection("FavItem").add(favouritesModel.toJson());
+      await _firebaseFirestore.collection(_kUserCollectionName).doc(userId).collection(_kFavouriteItem).add(favouritesModel.toJson());
     } on FirebaseFirestore catch (firebaseException) {
       print(firebaseException);
     } catch (dartException) {
