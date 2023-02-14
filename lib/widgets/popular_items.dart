@@ -105,7 +105,7 @@ class _PopularItemsState extends State<PopularItems> {
                                   addToCart.price = widget.itemPrice;
                                 await CartService().addNewCart(cartModel: addToCart, userId: currentUserId);
                               },
-                              icon: Icon(Icons.add),
+                              icon: Icon(Icons.shopping_cart, color: Colors.orange,),
                             ),
                           ],
                         ),

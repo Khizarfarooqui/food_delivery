@@ -1,9 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:food_delivery/services/favourite_service.dart';
-
 import '../models/favourites_model.dart';
-import '../services/user_services.dart';
 import '../widgets/ratings.dart';
 
 class FavouriteItemScreen extends StatefulWidget {
@@ -87,21 +85,21 @@ class _FavouriteItemScreenState extends State<FavouriteItemScreen> {
                                             Padding(
                                               padding: const EdgeInsets.only(bottom: 50),
                                               child: IconButton(onPressed: () async {
-                                                var currentUserId = UserService().getCurrentUserId();
-                                                if(currentUserId is String){
-                                                  _isFavourite = !_isFavourite;
-                                                  FavouritesModel addToFav = FavouritesModel.empty();
+                                                // var currentUserId = UserService().getCurrentUserId();
+                                                // if(currentUserId is String){
+                                                  // _isFavourite = !_isFavourite;
+                                                  // FavouritesModel addToFav = FavouritesModel.empty();
 
-                                                } else {
-
-                                                }
+                                                // } else {
+                                                //
+                                                // }
                                               },
                                                 icon: (_isFavourite ?
-                                                Icon(Icons.favorite) : Icon(Icons.favorite_outline)),
+                                                Icon(Icons.favorite) : Icon(Icons.favorite)),
                                                 color: Colors.red,
                                               ),
                                             ),
-                                            Icon(Icons.add),
+                                            Icon(Icons.shopping_cart, color: Colors.orange,),
                                           ],
                                         ),
                                       )

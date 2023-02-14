@@ -11,7 +11,6 @@ class Menu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Container(
-      // margin:EdgeInsets.all(8.0),
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(8.0))),
         child: Column(
@@ -27,31 +26,29 @@ class Menu extends StatelessWidget {
                   height: 150,fit:BoxFit.cover),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 3),
+              padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 3),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text("$menuName", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),),
-                  Text("Set Menu", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),),
                 ],
               ),
             ),
-            Row(
-              children: [
-                Ratings(),
-              ],
+            Padding(
+              padding: const EdgeInsets.only( left: 7,),
+              child: Ratings(),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 10, left: 10,),
+              padding: const EdgeInsets.only(top: 10, left: 9,),
               child: Row(
                 children: [
                   Text("Rs.$price", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),),
-                  SizedBox(width: 130,),
-                  Icon(Icons.add,),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 100.0),
+                    child: Text("Set Menu", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15,color: Colors.orange),),
+                  ),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),

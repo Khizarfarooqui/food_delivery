@@ -31,13 +31,16 @@ class CartService{
     }
   }
 
-  Future<void>getCart() async{
+  Future<dynamic>getCart() async{
     try{
       String sessionUser = await _sessionManagement.getDataOnKey('user');
       UserModel userModel = UserModel.fromJson(jsonDecode(sessionUser));
       var result = await _firebaseFirestore.collection(_kUserCollectionName).doc(userModel.userId).collection(_kUserCartName).get();
-
-
+      List<CartModel> cartList = [];
+      for(var data in result.docs){
+        cartList.add(CartModel.fromJson(data.data()));
+      }
+      return cartList;
     }on FirebaseException catch(firebaseException){
       print(firebaseException);
     }catch (dartException){

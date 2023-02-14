@@ -32,7 +32,7 @@ class _QuantiyCellState extends State<QuantiyCell> {
   Widget build(BuildContext context) {
     return  Row(
         children: [
-           Text("Rs. $_itemPrice", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.red),),
+           // Text("Rs. $_itemPrice", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.red),),
             Padding(
             padding: const EdgeInsets.only(left: 70),
             child: ClipRRect(
