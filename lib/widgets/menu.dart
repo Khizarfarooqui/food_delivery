@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:food_delivery/views/food_items.dart';
 import 'package:food_delivery/widgets/ratings.dart';
 
 class Menu extends StatelessWidget {
@@ -44,7 +45,19 @@ class Menu extends StatelessWidget {
                   Text("Rs.$price", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),),
                   Padding(
                     padding: const EdgeInsets.only(left: 100.0),
-                    child: Text("Set Menu", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15,color: Colors.orange),),
+                    child: GestureDetector(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=> FoodItems()));
+                        },
+                        child: Text("Set Menu",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15,
+                            decoration: TextDecoration.underline,
+                            color: Colors.orange,
+                        ),
+                        ),
+                    ),
                   ),
                 ],
               ),
