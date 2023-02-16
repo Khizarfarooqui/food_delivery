@@ -147,9 +147,9 @@ class _HomePageState extends State<HomePage> {
                                   fontWeight: FontWeight.bold, fontSize: 20),
                             ),
                             Spacer(),
-                            Text(
-                              "View All",
-                            ),
+                            // Text(
+                            //   "View All",
+                            // ),
                           ],
                         ),
                       ),
@@ -191,9 +191,9 @@ class _HomePageState extends State<HomePage> {
                               fontWeight: FontWeight.bold, fontSize: 20),
                         ),
                         Spacer(),
-                        Text(
-                          "View All",
-                        ),
+                        // Text(
+                        //   "View All",
+                        // ),
                       ],
                     ),
                   ),

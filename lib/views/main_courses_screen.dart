@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/models/main_course_model.dart';
+import 'package:food_delivery/models/my_menu_model.dart';
 import 'package:food_delivery/services/main_courses_service.dart';
+import 'package:food_delivery/services/my_menu_service.dart';
 
+import '../services/user_services.dart';
+import '../widgets/add_to_menu_button.dart';
 import '../widgets/ratings.dart';
 
 class MainCourses extends StatefulWidget {
@@ -12,6 +16,7 @@ class MainCourses extends StatefulWidget {
 }
 
 class _MainCoursesState extends State<MainCourses> {
+  var currentUserId = UserService().getCurrentUserId();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,7 +52,7 @@ class _MainCoursesState extends State<MainCourses> {
                                         children: [
                                           ClipRRect(
                                             borderRadius: BorderRadius.circular(8.0),
-                                            child: Image.network(result[index].mainCourseImageUrl,
+                                            child: Image.network(result[index].imageUrl,
                                               width: 100,
                                               height: 100,
                                               fit:BoxFit.fitHeight,
@@ -75,14 +80,16 @@ class _MainCoursesState extends State<MainCourses> {
                                                               color: Colors.orange,
                                                               borderRadius: BorderRadius.circular(10),
                                                             ),
-                                                            child: Padding(
-                                                              padding: const EdgeInsets.only(top: 8.0),
-                                                              child: Text("Add To Menu", textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.w500, color: Colors.white),),
+                                                              child: AddToMenuButton(msg: 'Add To Menu', ontap: () {
+                                                                MyMenuService().addNewMyMenu(myMenuModel: MyMenuModel.addNewMenuModel(
+                                                                    price: result[index].price,
+                                                                    itemName: result[index].itemName,
+                                                                    imageUrl: result[index].imageUrl), userId: currentUserId);
+                                                              },),
                                                             ),
-                                                            ),
-                                                          )
+                                                          ),
                                                         ],
-                                                      )
+                                                      ),
                                                     ],
                                                   ),
                                                 ),

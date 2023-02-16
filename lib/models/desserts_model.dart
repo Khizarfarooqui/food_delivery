@@ -1,29 +1,29 @@
 class DessertModel{
   String itemName = "";
-  String dessertImageUrl = "";
+  String imageUrl = "";
   double price = 0.0;
 
   DessertModel.emptyConstructor();
 
-  DessertModel.addNewDessertItem({required this.price, required this.itemName, required this.dessertImageUrl,});
+  DessertModel.addNewDessertItem({required this.price, required this.itemName, required this.imageUrl,});
 
   DessertModel.fromJson(Map<String ,dynamic> json){
     itemName = json["itemName"] ?? "";
-    dessertImageUrl = json["dessertImageUrl"] ?? "";
+    imageUrl = json["imageUrl"] ?? "";
     price = json["price"] ?? 0.0;
   }
 
   Map<String, dynamic> toJson(){
     return {
       "itemName" : itemName,
-      "dessertImageUrl" : dessertImageUrl,
+      "imageUrl" : imageUrl,
       "price" : price,
     };
   }
 
   @override
   String toString() {
-    return 'DessertModel{itemName: $itemName, dessertImageUrl: $dessertImageUrl, price: $price,}';
+    return 'DessertModel{itemName: $itemName, imageUrl: $imageUrl, price: $price,}';
   }
 
   @override
@@ -32,12 +32,12 @@ class DessertModel{
           other is DessertModel &&
               runtimeType == other.runtimeType &&
               itemName == other.itemName &&
-              dessertImageUrl == other.dessertImageUrl &&
+              imageUrl == other.imageUrl &&
               price == other.price;
 
   @override
   int get hashCode =>
       itemName.hashCode ^
-      dessertImageUrl.hashCode ^
+      imageUrl.hashCode ^
       price.hashCode;
 }

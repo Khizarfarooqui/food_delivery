@@ -17,8 +17,8 @@ class BeveragesService{
 
   Future<void> addNewBeverages({required BeveragesModel beveragesModel}) async{
     try{
-      // DocumentReference<Map<String ,dynamic>> result = await _firebaseFirestore.collection("Beverages").add(BeveragesModel.toJson());
-      // log("============ $result");
+      DocumentReference<Map<String ,dynamic>> result = await _firebaseFirestore.collection("Beverages").add(beveragesModel.toJson());
+      log("============ $result");
     }on FirebaseFirestore catch(firebaseException){
       print(firebaseException);
     }catch (dartException){

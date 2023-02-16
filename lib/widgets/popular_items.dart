@@ -87,9 +87,7 @@ class _PopularItemsState extends State<PopularItems> {
 
                                   await FavouriteService().addNewFavourite(favouritesModel: addToFav, userId: currentUserId,);
 
-                                } else {
-
-                                }
+                                } else {}
                                 },
                                   icon: (_isFavourite ?
                                   Icon(Icons.favorite) : Icon(Icons.favorite_outline)),

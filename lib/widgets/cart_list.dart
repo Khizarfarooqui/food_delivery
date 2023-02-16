@@ -1,6 +1,5 @@
 
 import 'package:flutter/material.dart';
-
 import '../controller/foodCart_controller.dart';
 
 class CartList extends StatelessWidget {

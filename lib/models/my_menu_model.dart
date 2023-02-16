@@ -1,16 +1,17 @@
-class MainCourseModel{
-  String itemName = "";
+
+class MyMenuModel{
   String imageUrl = "";
+  String itemName = "";
   double price = 0.0;
 
-  MainCourseModel.emptyConstructor();
+  MyMenuModel.emptyConstructor();
 
-  MainCourseModel.addNewMainCourse({required this.price, required this.itemName, required this.imageUrl,});
+  MyMenuModel.addNewMenuModel({required this.price, required this.itemName, required this.imageUrl,});
 
-  MainCourseModel.fromJson(Map<String ,dynamic> json){
+  MyMenuModel.fromJson(Map<String ,dynamic> json){
     itemName = json["itemName"] ?? "";
-    imageUrl = json["mainCourseImageUrl"] ?? "";
-    price = double.parse("${json["price"] ?? 0.0}");
+    imageUrl = json["imageUrl"] ?? "";
+    price = json["price"] ?? 0.0;
   }
 
   Map<String, dynamic> toJson(){
@@ -23,13 +24,13 @@ class MainCourseModel{
 
   @override
   String toString() {
-    return 'MainCourseModel{itemName: $itemName, imageUrl: $imageUrl, price: $price,}';
+    return 'MyMenuModel{itemName: $itemName, imageUrl: $imageUrl, price: $price,}';
   }
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-          other is MainCourseModel &&
+          other is MyMenuModel &&
               runtimeType == other.runtimeType &&
               itemName == other.itemName &&
               imageUrl == other.imageUrl &&
